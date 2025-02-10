@@ -4,7 +4,9 @@ import 'package:motels/app_exports.dart';
 ///TODO voltar para fazer a lista
 
 class CategoryRowWidget extends StatelessWidget {
-  const CategoryRowWidget({super.key});
+  final List<ItemCategoryModel> categoryList;
+
+  const CategoryRowWidget({super.key, required this.categoryList});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +25,22 @@ class CategoryRowWidget extends StatelessWidget {
         ],
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const CategoryItem(
-            iconUrl: 'https://cdn.guiademoteis.com.br/Images/itens-suites/frigobar-04-09-2018-12-14.png',
+          SizedBox(
+            height: 56.adaptive,
+            child: ListView.separated(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: categoryList.length > 4 ? 4 : categoryList.length,
+              separatorBuilder: (context, index) {
+                return SizedBox(width: 8.width);
+              },
+              itemBuilder: (context, index) {
+                return CategoryItem(iconUrl: categoryList[index].iconUrl);
+              },
+            ),
           ),
           SizedBox(width: 16.width),
           const SeeMoreWidget(),

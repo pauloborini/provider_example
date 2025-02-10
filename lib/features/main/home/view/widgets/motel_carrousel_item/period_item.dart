@@ -3,7 +3,9 @@ import 'package:motels/app_exports.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class PeriodItem extends StatelessWidget {
-  const PeriodItem({super.key});
+  final PeriodModel periodModel;
+
+  const PeriodItem({super.key, required this.periodModel});
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +30,26 @@ class PeriodItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '1 hora',
+                  periodModel.formattedTime,
                   style: context.textStyles.bodyTextMedium.copyWith(
                     fontSize: 19.font,
                     color: context.colors.textColorMedium,
                   ),
                 ),
                 SizedBox(height: 4.height),
-                const PriceDisplayWidget(value: 100, fontSize: 19),
+
+                ///TODO criar a parte do desconto
+                PriceDisplayWidget(value: periodModel.price, fontSize: 19.font),
               ],
             ),
           ),
           Column(
             children: [
-              Icon(PhosphorIconsBold.caretRight, size: 28.icon, color: context.colors.textColorLight),
+              Icon(
+                PhosphorIconsBold.caretRight,
+                size: 28.icon,
+                color: context.colors.textColorLight,
+              ),
             ],
           ),
         ],

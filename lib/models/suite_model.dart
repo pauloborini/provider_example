@@ -6,8 +6,8 @@ class SuiteModel {
   final bool showAvailableQuantity;
   final List<String> photos;
   final List<ItemModel> items;
-  final List<ItemCategoryModel> itemCategories;
-  final List<PeriodModel> periods;
+  final List<ItemCategoryModel> itemCategoryList;
+  final List<PeriodModel> periodList;
 
   SuiteModel({
     required this.name,
@@ -15,13 +15,13 @@ class SuiteModel {
     required this.showAvailableQuantity,
     required this.photos,
     required this.items,
-    required this.itemCategories,
-    required this.periods,
+    required this.itemCategoryList,
+    required this.periodList,
   });
 
   factory SuiteModel.fromJson(Map<String, dynamic> json) {
     final items = json['itens'] as List<dynamic>? ?? [];
-    final itemCategories = json['categorias'] as List<dynamic>? ?? [];
+    final itemCategories = json['categoriaItens'] as List<dynamic>? ?? [];
     final periods = json['periodos'] as List<dynamic>? ?? [];
 
     return SuiteModel(
@@ -30,8 +30,8 @@ class SuiteModel {
       showAvailableQuantity: json['exibirQtdDisponiveis'] as bool? ?? false,
       photos: List<String>.from(json['fotos']),
       items: items.map((item) => ItemModel.fromJson(item as Map<String, dynamic>)).toList(),
-      itemCategories: itemCategories.map((item) => ItemCategoryModel.fromJson(item as Map<String, dynamic>)).toList(),
-      periods: periods.map((item) => PeriodModel.fromJson(item as Map<String, dynamic>)).toList(),
+      itemCategoryList: itemCategories.map((item) => ItemCategoryModel.fromJson(item as Map<String, dynamic>)).toList(),
+      periodList: periods.map((item) => PeriodModel.fromJson(item as Map<String, dynamic>)).toList(),
     );
   }
 }

@@ -13,14 +13,15 @@ dependencies:
     sdk: flutter
   cupertino_icons: 1.0.8
   provider: 6.1.2
-  nested: 1.0.0
   phosphor_flutter: 2.1.0
   flutter_screenutil: 5.9.3
   shimmer: 3.0.0
   modal_bottom_sheet: 3.0.0
   intl: 0.18.0
   dio: 5.7.0
-
+  cached_network_image: 3.4.1
+  path_provider: 2.1.5
+  carousel_slider: 5.0.0
 
 
 

@@ -53,12 +53,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ValueListenableBuilder(
             valueListenable: homeVM.screenLoaded,
             builder: (context, isLoaded, _) {
-              ///TODO continuar daqui e criar o skeleton amanha
-              return Expanded(
-                child: GoNowBody(
-                  homeViewModel: homeVM,
-                ),
-              );
+              return !isLoaded
+                  ? Expanded(
+                      child: SkeletonGoNowWidget(
+                        homeViewModel: homeVM,
+                      ),
+                    )
+                  : Expanded(
+                      child: GoNowBody(
+                        homeViewModel: homeVM,
+                      ),
+                    );
             },
           ),
         ],

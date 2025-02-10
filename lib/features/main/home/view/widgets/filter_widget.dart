@@ -34,6 +34,7 @@ class FilterWidget extends StatelessWidget {
                         showIcon: true,
                         isSelected: false,
                         onPressed: () => _showFilterSelectionModal(context),
+                        isDisabled: !homeViewModel.screenLoaded.value,
                       ),
                     ),
                   ],
@@ -54,6 +55,7 @@ class FilterWidget extends StatelessWidget {
                       return FilterItem(
                         label: filter,
                         isSelected: homeViewModel.selectedFilter.contains(filter),
+                        isDisabled: !homeViewModel.screenLoaded.value,
                         onPressed: () => _setSelectedFilter(filter),
                       );
                     },

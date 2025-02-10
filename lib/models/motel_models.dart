@@ -2,7 +2,7 @@ import 'package:motels/models/suite_model.dart';
 
 class MotelModel {
   final String name;
-  final String logo;
+  final String logoUrl;
   final String neighborhood;
   final double distance;
   final int favorites;
@@ -12,7 +12,7 @@ class MotelModel {
 
   MotelModel({
     required this.name,
-    required this.logo,
+    required this.logoUrl,
     required this.neighborhood,
     required this.distance,
     required this.favorites,
@@ -26,7 +26,7 @@ class MotelModel {
 
     return MotelModel(
       name: json['fantasia'] as String,
-      logo: json['logo'] as String,
+      logoUrl: json['logo'] as String,
       neighborhood: json['bairro'] as String,
       distance: (json['distancia'] as num).toDouble(),
       favorites: json['qtdFavoritos'] as int,

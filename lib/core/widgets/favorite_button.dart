@@ -14,8 +14,10 @@ class FavoriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onPressed(),
+    return InkWell(
+      onTap: () {
+        onPressed();
+      },
       child: Icon(
         PhosphorIconsFill.heart,
         size: 32.icon,

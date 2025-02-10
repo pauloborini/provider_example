@@ -6,6 +6,7 @@ class FilterItem extends StatelessWidget {
   final String label;
   final bool showIcon;
   final bool isSelected;
+  final bool isDisabled;
   final VoidCallback onPressed;
 
   const FilterItem({
@@ -14,12 +15,16 @@ class FilterItem extends StatelessWidget {
     this.showIcon = false,
     required this.isSelected,
     required this.onPressed,
+    required this.isDisabled,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onPressed(),
+      onTap: () {
+        if (isDisabled) return;
+        onPressed();
+      },
       child: Container(
         alignment: Alignment.center,
         height: 40.height,
@@ -36,14 +41,22 @@ class FilterItem extends StatelessWidget {
                 padding: EdgeInsets.only(right: 6.width),
                 child: Icon(
                   PhosphorIconsRegular.slidersHorizontal,
-                  color: isSelected ? context.colors.neutralWhite : context.colors.textColor,
+                  color: isSelected
+                      ? context.colors.neutralWhite
+                      : isDisabled
+                          ? context.colors.neutralShade400
+                          : context.colors.textColor,
                   size: 20.icon,
                 ),
               ),
             Text(
               label,
               style: TextStyle(
-                color: isSelected ? context.colors.neutralWhite : context.colors.textColor,
+                color: isSelected
+                    ? context.colors.neutralWhite
+                    : isDisabled
+                        ? context.colors.neutralShade400
+                        : context.colors.textColor,
                 fontSize: 14.font,
                 fontWeight: FontWeight.w500,
               ),

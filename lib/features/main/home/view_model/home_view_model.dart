@@ -18,6 +18,8 @@ class HomeViewModel extends ChangeNotifier {
   String _selectedFinalDate = '11 fev';
   String _selectedInitialDate = '10 fev';
 
+  List<MotelModel> get motelList => _motelService.motelList;
+
   List<String> get selectedFilter => _selectedFilter;
 
   int get selectedIndex => _selectedIndex;
@@ -35,16 +37,11 @@ class HomeViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> fetchMotels() async {
-    await _motelService.fetchMotels();
-    notifyListeners();
-  }
-
-  void toggleTempFavorite(String motelId) {
-    if (favoriteTempList.contains(motelId)) {
-      favoriteTempList.remove(motelId);
+  void toggleTempFavorite(String motelName) {
+    if (favoriteTempList.contains(motelName)) {
+      favoriteTempList.remove(motelName);
     } else {
-      favoriteTempList.add(motelId);
+      favoriteTempList.add(motelName);
     }
     notifyListeners();
   }

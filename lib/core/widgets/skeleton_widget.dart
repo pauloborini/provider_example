@@ -6,7 +6,11 @@ class SkeletonWidget extends StatelessWidget {
   final double width;
   final double? height;
 
-  const SkeletonWidget({super.key, required this.width, this.height});
+  const SkeletonWidget({
+    super.key,
+    required this.width,
+    this.height,
+  });
 
   @override
   Widget build(BuildContext context) {
