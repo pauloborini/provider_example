@@ -39,6 +39,7 @@ export 'features/main/home/view/widgets/header_go_now_widget.dart';
 export 'features/main/home/view/widgets/home_appbar.dart';
 export 'features/main/home/view/widgets/motel_carrousel_item/category_item.dart';
 export 'features/main/home/view/widgets/motel_carrousel_item/category_row_widget.dart';
+export 'features/main/home/view/widgets/motel_carrousel_item/discount_tag_widget.dart';
 export 'features/main/home/view/widgets/motel_carrousel_item/header_motel_widget.dart';
 export 'features/main/home/view/widgets/motel_carrousel_item/motel_carrousel_item.dart';
 export 'features/main/home/view/widgets/motel_carrousel_item/period_item.dart';

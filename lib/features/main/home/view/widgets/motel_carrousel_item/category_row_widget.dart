@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motels/app_exports.dart';
 
-///TODO voltar para fazer a lista
-
 class CategoryRowWidget extends StatelessWidget {
   final List<ItemCategoryModel> categoryList;
 

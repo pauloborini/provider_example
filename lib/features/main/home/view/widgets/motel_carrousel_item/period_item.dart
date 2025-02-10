@@ -29,17 +29,30 @@ class PeriodItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  periodModel.formattedTime,
-                  style: context.textStyles.bodyTextMedium.copyWith(
-                    fontSize: 19.font,
-                    color: context.colors.textColorMedium,
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      periodModel.formattedTime,
+                      style: context.textStyles.bodyTextMedium.copyWith(
+                        fontSize: 19.font,
+                        color: context.colors.textColorMedium,
+                      ),
+                    ),
+                    SizedBox(width: 8.width),
+                    if (periodModel.discount != null)
+                      DiscountTagWidget(
+                        price: periodModel.price,
+                        discount: periodModel.discount?.value ?? 0,
+                      ),
+                  ],
                 ),
                 SizedBox(height: 4.height),
-
-                ///TODO criar a parte do desconto
-                PriceDisplayWidget(value: periodModel.price, fontSize: 19.font),
+                PriceDisplayWidget(
+                  price: periodModel.price,
+                  totalPrice: periodModel.totalPrice,
+                  fontSize: 19.font,
+                  discount: periodModel.discount?.value ?? 0,
+                ),
               ],
             ),
           ),
