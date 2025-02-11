@@ -7,7 +7,7 @@
 - Flutter
 - Provider
 - HTTP
-- Testes Unitários
+- Mockito
 
 ## Funcionalidades
 
