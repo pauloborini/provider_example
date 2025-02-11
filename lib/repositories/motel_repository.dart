@@ -8,7 +8,7 @@ class MotelRepository extends ChangeNotifier {
   Future<List<MotelModel>> fetchMotels() async {
     try {
       final response = await _apiClient.getData('/');
-      final apiResponse = ApiResponseModel.fromJson(response.data);
+      final apiResponse = ApiResponseModel.fromJson(response);
       return apiResponse.data.motels;
     } catch (e) {
       rethrow;

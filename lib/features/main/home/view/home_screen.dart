@@ -50,14 +50,32 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          Container(
+            width: double.maxFinite,
+            decoration: BoxDecoration(
+              color: context.colors.neutralShade100,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16.adaptive),
+                topRight: Radius.circular(16.adaptive),
+              ),
+            ),
+            child: Column(
+              children: [
+                SizedBox(height: 12.height),
+                FilterWidget(homeViewModel: homeVM),
+                LineDividerWidget(
+                  firstPadding: 12.height,
+                  secondPadding: 0,
+                ),
+              ],
+            ),
+          ),
           ValueListenableBuilder(
             valueListenable: homeVM.screenLoaded,
             builder: (context, isLoaded, _) {
               return !isLoaded
-                  ? Expanded(
-                      child: SkeletonGoNowWidget(
-                        homeViewModel: homeVM,
-                      ),
+                  ? const Expanded(
+                      child: SkeletonGoNowWidget(),
                     )
                   : Expanded(
                       child: GoNowBody(
@@ -70,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Padding(
-        padding: EdgeInsets.only(bottom: 24.height),
+        padding: EdgeInsets.only(bottom: 16.height),
         child: FloatingActionButton.extended(
           elevation: 2,
           backgroundColor: context.colors.neutralWhite,

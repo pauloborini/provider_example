@@ -35,6 +35,7 @@ class _MotelCarrouselItemState extends State<MotelCarrouselItem> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         HeaderMotelWidget(
           logoUrl: widget.motelModel.logoUrl,
@@ -47,7 +48,7 @@ class _MotelCarrouselItemState extends State<MotelCarrouselItem> {
         ),
         SizedBox(height: 20.height),
         SizedBox(
-          height: context.percentHeight(0.85),
+          height: 820.height,
           child: PageView.builder(
             controller: _pageController,
             itemCount: widget.motelModel.suites.length,

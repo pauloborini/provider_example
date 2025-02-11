@@ -51,6 +51,7 @@ class HeaderMotelWidget extends StatelessWidget {
                 Text(
                   motelLocation.toLowerCase(),
                   style: context.textStyles.bodyText.copyWith(color: context.colors.textColorMedium),
+                  maxLines: 1,
                 ),
                 SizedBox(height: 8.height),
                 Row(
@@ -59,9 +60,13 @@ class HeaderMotelWidget extends StatelessWidget {
                       rating: motelRating,
                     ),
                     SizedBox(width: 12.width),
-                    Text(
-                      '$motelRatingCount  ${motelRatingCount == 1 ? 'avaliação' : 'avaliações'} ',
-                      style: context.textStyles.bodyTextMedium.copyWith(color: context.colors.textColorMedium),
+                    Flexible(
+                      child: Text(
+                        '$motelRatingCount  ${motelRatingCount == 1 ? 'avaliação' : 'avaliações'} ',
+                        style: context.textStyles.bodyTextMedium.copyWith(color: context.colors.textColorMedium),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     Icon(
                       PhosphorIconsBold.caretDown,

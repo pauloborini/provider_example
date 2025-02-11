@@ -10,7 +10,8 @@ class CategoryRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.all(16.adaptive),
+      padding: EdgeInsets.all(12.adaptive),
+      height: 80.adaptive,
       decoration: BoxDecoration(
         color: context.colors.neutralWhite,
         borderRadius: BorderRadius.circular(8.adaptive),
@@ -25,19 +26,24 @@ class CategoryRowWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            height: 56.adaptive,
-            child: ListView.separated(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: categoryList.length > 4 ? 4 : categoryList.length,
-              separatorBuilder: (context, index) {
-                return SizedBox(width: 8.width);
-              },
-              itemBuilder: (context, index) {
-                return CategoryItem(iconUrl: categoryList[index].iconUrl);
-              },
+          Flexible(
+            child: SizedBox(
+              height: 56.adaptive,
+              width: 240.width,
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: categoryList.length > 4 ? 4 : categoryList.length,
+                  crossAxisSpacing: 8.0,
+                  mainAxisSpacing: 8.0,
+                  childAspectRatio: 1,
+                ),
+                itemCount: categoryList.length > 4 ? 4 : categoryList.length,
+                itemBuilder: (context, index) {
+                  return CategoryItem(iconUrl: categoryList[index].iconUrl);
+                },
+              ),
             ),
           ),
           SizedBox(width: 16.width),

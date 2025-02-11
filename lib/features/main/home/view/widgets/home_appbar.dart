@@ -40,94 +40,105 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Container(
-              width: 320.width,
-              height: 40.height,
-              decoration: BoxDecoration(
-                color: context.colors.primaryDark,
-                borderRadius: BorderRadius.circular(100.adaptive),
-              ),
-              child: Stack(
-                children: [
-                  AnimatedPositioned(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    left: homeViewModel.selectedIndex == 0 ? 0 : 160.width,
-                    child: Container(
-                      width: 160.width,
-                      height: 40.height,
-                      decoration: BoxDecoration(
-                        color: context.colors.neutralWhite,
-                        borderRadius: BorderRadius.circular(100.adaptive),
-                      ),
-                    ),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                return Container(
+                  width: constraints.maxWidth,
+                  height: 40.height,
+                  decoration: BoxDecoration(
+                    color: context.colors.primaryDark,
+                    borderRadius: BorderRadius.circular(100.adaptive),
                   ),
-                  Row(
+                  child: Stack(
                     children: [
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () => _onTabChanged(0),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 40.height,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  PhosphorIconsFill.lightning,
-                                  size: 18.icon,
-                                  color: homeViewModel.selectedIndex == 0
-                                      ? context.colors.primary
-                                      : context.colors.neutralWhite,
-                                ),
-                                SizedBox(width: 4.width),
-                                Text(
-                                  'ir agora',
-                                  style: context.textStyles.bodyTextMedium.copyWith(
-                                    color: homeViewModel.selectedIndex == 0
-                                        ? context.colors.textColor
-                                        : context.colors.neutralWhite,
-                                  ),
-                                ),
-                              ],
-                            ),
+                      AnimatedPositioned(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                        left: homeViewModel.selectedIndex == 0 ? 0 : constraints.maxWidth / 2,
+                        child: Container(
+                          width: constraints.maxWidth / 2,
+                          height: 40.height,
+                          decoration: BoxDecoration(
+                            color: context.colors.neutralWhite,
+                            borderRadius: BorderRadius.circular(100.adaptive),
                           ),
                         ),
                       ),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () => _onTabChanged(1),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 40.height,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  PhosphorIconsRegular.calendarCheck,
-                                  size: 18.icon,
-                                  color: homeViewModel.selectedIndex == 1
-                                      ? context.colors.primary
-                                      : context.colors.neutralWhite,
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () => _onTabChanged(0),
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 40.height,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      PhosphorIconsFill.lightning,
+                                      size: 18.icon,
+                                      color: homeViewModel.selectedIndex == 0
+                                          ? context.colors.primary
+                                          : context.colors.neutralWhite,
+                                    ),
+                                    SizedBox(width: 4.width),
+                                    Flexible(
+                                      child: Text(
+                                        'ir agora',
+                                        style: context.textStyles.bodyTextMedium.copyWith(
+                                          color: homeViewModel.selectedIndex == 0
+                                              ? context.colors.textColor
+                                              : context.colors.neutralWhite,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                SizedBox(width: 4.width),
-                                Text(
-                                  'ir outro dia',
-                                  style: context.textStyles.bodyTextMedium.copyWith(
-                                    color: homeViewModel.selectedIndex == 1
-                                        ? context.colors.textColor
-                                        : context.colors.neutralWhite,
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () => _onTabChanged(1),
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 40.height,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      PhosphorIconsRegular.calendarCheck,
+                                      size: 18.icon,
+                                      color: homeViewModel.selectedIndex == 1
+                                          ? context.colors.primary
+                                          : context.colors.neutralWhite,
+                                    ),
+                                    SizedBox(width: 4.width),
+                                    Flexible(
+                                      child: Text(
+                                        'ir outro dia',
+                                        style: context.textStyles.bodyTextMedium.copyWith(
+                                          color: homeViewModel.selectedIndex == 1
+                                              ? context.colors.textColor
+                                              : context.colors.neutralWhite,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
+                );
+              },
             ),
           ],
         ),
