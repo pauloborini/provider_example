@@ -15,6 +15,13 @@
 - Consumo de API mock para testes.
 - Layout moderno e intuitivo.
 
+## Vídeo do app
+
+<a href="https://www.loom.com/share/485506a230084541ab8696e5464cbc3e?sid=76c8dee8-e474-4692-9d60-3e41cc770936">
+  <img src="https://github.com/user-attachments/assets/8232a1b8-553e-4ee6-952e-9968ec929515" width="400">
+</a>
+
+
 ## Instalação e Execução
 
 ### Pré-requisitos
