@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:motels/app_exports.dart';
+import 'package:motels/core/helpers/extensions/responsive_extension.dart';
+import 'package:motels/core/ui/styles/colors_app.dart';
 
 class LineDividerWidget extends StatelessWidget {
   final double firstPadding;
