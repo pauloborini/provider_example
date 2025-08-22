@@ -45,7 +45,6 @@ class HomeStore extends AppStore {
     result.when((error) {
       screenLoaded.value = true;
       setError(error.message);
-      print(error.message);
     }, (motels) {
       clearError();
       _motelList.addAll(motels);

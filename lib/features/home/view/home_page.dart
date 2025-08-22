@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motels/core/helpers/extensions/responsive_extension.dart';
+import 'package:motels/core/helpers/feedback/feedback_handler.dart';
 import 'package:motels/core/ui/styles/colors_app.dart';
 import 'package:motels/core/ui/styles/text_styles.dart';
 import 'package:motels/core/utils/di/di_provider.dart';
@@ -30,14 +31,36 @@ class _HomePageState extends State<HomePage> {
     if (!_initialized) {
       store = context.di<HomeStore>();
       _initialized = true;
+      store.addListener(_onStoreChanged);
       WidgetsBinding.instance.addPostFrameCallback((timestamp) async {
         await _setupConfigs();
       });
     }
   }
 
+  void _onStoreChanged() {
+    if (store.errorMessage != null && store.errorMessage!.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          FeedbackHandler.showSnackBar(
+            context: context,
+            isSuccess: false,
+            message: store.errorMessage!,
+          );
+          store.clearError();
+        }
+      });
+    }
+  }
+
   Future<void> _setupConfigs() async {
     await store.setupConfigs();
+  }
+
+  @override
+  void dispose() {
+    store.removeListener(_onStoreChanged);
+    super.dispose();
   }
 
   @override

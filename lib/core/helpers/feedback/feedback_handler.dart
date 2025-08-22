@@ -11,6 +11,7 @@ class FeedbackHandler {
     required String message,
     int millisecondsDuration = 2500,
   }) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(

@@ -1,4 +1,3 @@
-import 'package:motels/core/exceptions/app_exception.dart';
 import 'package:motels/features/home/domain/adapters/api_response_adapter.dart';
 import 'package:motels/features/home/domain/dto/motel_dto.dart';
 import 'package:motels/shared/api/api_client.dart';
