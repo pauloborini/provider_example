@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:motels/app_exports.dart';
+import 'package:motels/core/helpers/extensions/responsive_extension.dart';
+import 'package:motels/core/ui/styles/colors_app.dart';
+import 'package:motels/core/ui/styles/text_styles.dart';
 
 class PriceDisplayWidget extends StatelessWidget {
   final double totalPrice;

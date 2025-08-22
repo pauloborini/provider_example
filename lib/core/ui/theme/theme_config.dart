@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:motels/app_exports.dart';
+import 'package:motels/core/ui/styles/colors_app.dart';
 
 class ThemeConfig {
   ThemeConfig._();

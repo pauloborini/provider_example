@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:motels/app_exports.dart';
+import 'package:motels/core/constants/constants.dart';
 
 extension SizeExtension on BuildContext {
   double get screenWidth => MediaQuery.of(this).size.width;
