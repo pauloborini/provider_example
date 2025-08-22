@@ -1,13 +1,13 @@
-# Processo seletivo
+# Exemplo do Provider
 
-## Aplicativo para avaliação técnica no processo seletivo.
+## Aplicativo para exemplificar a utilização do Provider
 
 ## ️ Tecnologias Utilizadas
 
 - Flutter
 - Provider
 - HTTP
-- Mockito
+- Mockito (Testes serão implementados posteriormente)
 
 ## Funcionalidades
 
