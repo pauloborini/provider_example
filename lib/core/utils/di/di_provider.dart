@@ -51,7 +51,10 @@ extension DiProviderExtension on BuildContext {
   T di<T>() {
     final scope = _DiProviderScope.of(this);
     if (scope == null) {
-      throw Exception('DiProvider não encontrado na árvore de widgets');
+      throw Exception('DiProvider não encontrado na árvore de widgets. '
+          'Certifique-se de que o widget está envolvido por um DiProvider e '
+          'que você não está tentando acessá-lo durante initState(). '
+          'Use didChangeDependencies() em vez disso.');
     }
     return scope.container.get<T>();
   }
@@ -59,7 +62,10 @@ extension DiProviderExtension on BuildContext {
   DiContainer get diContainer {
     final scope = _DiProviderScope.of(this);
     if (scope == null) {
-      throw Exception('DiProvider não encontrado na árvore de widgets');
+      throw Exception('DiProvider não encontrado na árvore de widgets. '
+          'Certifique-se de que o widget está envolvido por um DiProvider e '
+          'que você não está tentando acessá-lo durante initState(). '
+          'Use didChangeDependencies() em vez disso.');
     }
     return scope.container;
   }

@@ -22,14 +22,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late HomeStore store;
+  bool _initialized = false;
 
   @override
-  void initState() {
-    super.initState();
-    store = context.di<HomeStore>();
-    WidgetsBinding.instance.addPostFrameCallback((timestamp) async {
-      await _setupConfigs();
-    });
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_initialized) {
+      store = context.di<HomeStore>();
+      _initialized = true;
+      WidgetsBinding.instance.addPostFrameCallback((timestamp) async {
+        await _setupConfigs();
+      });
+    }
   }
 
   Future<void> _setupConfigs() async {

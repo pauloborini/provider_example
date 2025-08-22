@@ -29,6 +29,10 @@ class HomeStore extends AppStore {
   String get selectedCity => _selectedCity;
 
   Future<void> setupConfigs() async {
+    await _refreshData();
+  }
+
+  Future<void> _refreshData() async {
     screenLoaded.value = false;
     _motelList.clear();
 
@@ -39,11 +43,12 @@ class HomeStore extends AppStore {
     );
 
     result.when((error) {
-      setError(error);
-      screenLoaded.value = false;
+      screenLoaded.value = true;
+      setError(error.message);
+      print(error.message);
     }, (motels) {
-      _motelList.addAll(motels);
       clearError();
+      _motelList.addAll(motels);
       screenLoaded.value = true;
     });
 
@@ -101,7 +106,6 @@ class HomeStore extends AppStore {
   @override
   void dispose() {
     pageController.dispose();
-    screenLoaded.dispose();
     super.dispose();
   }
 }

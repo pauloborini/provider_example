@@ -13,14 +13,6 @@ class ApiResponseAdapter {
     );
   }
 
-  static Map<String, dynamic> toJson(ApiResponseDTO dto) {
-    return {
-      'sucesso': dto.success,
-      'data': DataAdapter.toJson(dto.data),
-      'mensagem': dto.message,
-    };
-  }
-
   static ApiResponseEntity toEntity(ApiResponseDTO dto) {
     return ApiResponseEntity(
       success: dto.success,
