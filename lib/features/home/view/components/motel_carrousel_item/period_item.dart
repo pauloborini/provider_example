@@ -3,8 +3,8 @@ import 'package:motels/core/helpers/extensions/responsive_extension.dart';
 import 'package:motels/core/ui/styles/colors_app.dart';
 import 'package:motels/core/ui/styles/text_styles.dart';
 import 'package:motels/core/widgets/price_display_widget.dart';
+import 'package:motels/features/home/domain/entities/complementary_entity.dart';
 import 'package:motels/features/home/view/components/motel_carrousel_item/discount_tag_widget.dart';
-import 'package:motels/features/main/home/domain/entities/complementary_entity.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class PeriodItem extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:motels/core/helpers/extensions/responsive_extension.dart';
 import 'package:motels/core/ui/styles/colors_app.dart';
+import 'package:motels/features/home/domain/entities/complementary_entity.dart';
 import 'package:motels/features/home/view/components/motel_carrousel_item/category_item.dart';
 import 'package:motels/features/home/view/components/motel_carrousel_item/see_more_widget.dart';
-import 'package:motels/features/main/home/domain/entities/complementary_entity.dart';
 
 class CategoryRowWidget extends StatelessWidget {
   final List<ItemCategoryEntity> categoryList;

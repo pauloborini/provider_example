@@ -10,9 +10,4 @@ class AppService extends ChangeNotifier implements Disposable {
     _isLoading = loading;
     notifyListeners();
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 }

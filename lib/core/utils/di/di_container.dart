@@ -22,7 +22,8 @@ class DiContainer {
     }
 
     if (_factories.containsKey(T)) {
-      return (_factories[T]!() as T);
+      // ignore: avoid_dynamic_calls
+      return _factories[T]!() as T;
     }
 
     throw Exception('Serviço $T não encontrado no container');

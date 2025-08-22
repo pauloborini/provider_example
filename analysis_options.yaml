@@ -24,7 +24,6 @@ linter:
 
   rules:
     sort_pub_dependencies: false
-    unsafe_html: false
     prefer_relative_imports: false
     always_use_package_imports: true
     unnecessary_await_in_return: true
